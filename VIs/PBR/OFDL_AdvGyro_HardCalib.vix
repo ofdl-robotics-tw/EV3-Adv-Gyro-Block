@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Version="1.0.2.10" xmlns="http://www.ni.com/SourceModel.xsd">
+    <Namespace Name="Project">
+        <VirtualInstrument IsTopLevel="false" IsReentrant="false" Version="1.0.2.0" xmlns="http://www.ni.com/VirtualInstrument.xsd">
+            <DataItem Name="SequenceIn" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="6" />
+            <DataItem Name="SequenceOut" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" DefaultTerminalDirection="Input" CallUsage="None" CallDirection="Output" CallIndex="6" />
+            <DataItem Name="Port" DataType="Single" DefaultTerminalDirection="Output" CallUsage="None" CallDirection="Input" CallIndex="0" DefaultValue="0" />
+            <FrontPanel>
+                <fpruntime:FrontPanelCanvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:fpruntime="clr-namespace:NationalInstruments.LabVIEW.FrontPanelRuntime;assembly=NationalInstruments.LabVIEW.FrontPanelRuntime" xmlns:Model="clr-namespace:NationalInstruments.SourceModel.Designer;assembly=NationalInstruments.SourceModel" x:Name="FrontPanel" Model:DesignerSurfaceProperties.CanSnapToObjects="True" Model:DesignerSurfaceProperties.SnapToObjects="True" Model:DesignerSurfaceProperties.ShowSnaplines="True" Model:DesignerSurfaceProperties.ShowControlAdorners="True" Width="640" Height="480" />
+            </FrontPanel>
+            <BlockDiagram Name="__RootDiagram__">
+                <FlatSequence Id="n13" Bounds="350 175 714 252">
+                    <FlatSequence.Frame Id="D14" Bounds="7 7 364 238">
+                        <MethodCall Id="n17" Bounds="301 84 28 70" Target="X3\.Lib:PBrickInputReadySI">
+                            <Terminal Id="layer" Direction="Input" Wire="w19" DataType="SByte" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="port" Direction="Input" Wire="w21" DataType="SByte" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                            <Terminal Id="type" Direction="Input" Wire="w18" DataType="SByte" Hotspot="0 0.5" Bounds="0 28 14 14" />
+                            <Terminal Id="Mode" Direction="Input" Wire="w17" DataType="SByte" Hotspot="0 0.5" Bounds="0 42 14 14" />
+                            <Terminal Id="ValueCount" Direction="Input" Wire="w15" DataType="SByte" Hotspot="0 0.5" Bounds="0 56 14 14" />
+                            <Terminal Id="Value" Direction="Output" DataType="Single" Hotspot="1 0.5" Bounds="14 0 14 14" />
+                        </MethodCall>
+                        <Wire Id="w20" Joints="N(n19:Value) N(n10:port)" />
+                        <Wire Id="w15" Joints="N(n14:Out) N(n17:ValueCount)" />
+                        <Wire Id="w17" Joints="N(n8:Out) N(n17:Mode)" />
+                        <Wire Id="w18" Joints="N(n6:Out) N(n17:type)" />
+                        <Wire Id="w21" Joints="N(n10:portOut) N(n17:port)" />
+                        <Wire Id="w19" Joints="N(n10:layer) N(n17:layer)" />
+                        <Literal Id="n6" Terminals="Out=w18" Bounds="224 112 28 14" Interpretation="Exact" DataType="Byte">33</Literal>
+                        <Literal Id="n8" Terminals="Out=w17" Bounds="224 126 28 14" Interpretation="Exact" DataType="Byte">0</Literal>
+                        <DataAccessor DataItem="Port" Id="n19" Bounds="14 84 70 14">
+                            <Terminal Id="Value" Direction="Output" Wire="w20" Hotspot="1 0.5" Bounds="0 0 70 14" />
+                        </DataAccessor>
+                        <Literal Id="n14" Terminals="Out=w15" Bounds="224 140 28 14" Interpretation="Exact" DataType="Byte">1</Literal>
+                        <MethodCall Id="n10" Bounds="140 84 28 28" Target="X3\.Lib:PBrickPortConvertInput">
+                            <Terminal Id="port" Direction="Input" Wire="w20" DataType="Int32" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="layer" Direction="Output" Wire="w19" DataType="SByte" Hotspot="1 0.5" Bounds="14 0 14 14" />
+                            <Terminal Id="portOut" Direction="Output" Wire="w21" DataType="SByte" Hotspot="1 0.5" Bounds="14 14 14 14" />
+                        </MethodCall>
+                    </FlatSequence.Frame>
+                    <FlatSequence.Frame Id="D3" Bounds="378 7 329 238">
+                        <Literal Id="n2" Terminals="Out=w3" Bounds="42 70 35 14" Interpretation="Exact" DataType="Single">0.3</Literal>
+                        <MethodCall Id="n4" Bounds="126 70 56 98" Target="OFDL_AdvGyro_TimerCompare\.vix">
+                            <Terminal Id="Timer" Direction="Input" Wire="w3" DataType="Single" Hotspot="0 0.5" Bounds="0 0 14 14" />
+                            <Terminal Id="Comparison" Direction="Input" DataType="Int32" Hotspot="0 0.5" Bounds="0 14 14 14" />
+                            <Terminal Id="Threshold" Direction="Input" DataType="Single" Hotspot="0 0.5" Bounds="0 28 14 14" />
+                            <Terminal Id="InterruptsToListenFor_16B03592_CD76_4D58_8DC3_E3C3091E327A" Direction="Input" DataType="Int32" Hotspot="0 0.5" Bounds="0 42 14 14" />
+                            <Terminal Id="SequenceIn" Direction="Input" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="0 0.5" Bounds="0 84 14 14" />
+                            <Terminal Id="Result" Direction="Output" DataType="Boolean" Hotspot="1 0.5" Bounds="42 0 14 14" />
+                            <Terminal Id="Timer\ Value" Direction="Output" DataType="Single" Hotspot="1 0.5" Bounds="42 14 14 14" />
+                            <Terminal Id="SequenceOut" Direction="Output" DataType="NationalInstruments:SourceModel:DataTypes:X3SequenceWireDataType" Hotspot="1 0.5" Bounds="42 84 14 14" />
+                        </MethodCall>
+                        <Wire Id="w3" Joints="N(n2:Out) N(n4:Timer)" />
+                    </FlatSequence.Frame>
+                </FlatSequence>
+            </BlockDiagram>
+        </VirtualInstrument>
+    </Namespace>
+</SourceFile>

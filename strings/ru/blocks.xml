@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EditorStrings>
+  <PolyGroups ModuleName="OFDL AdvGyro">
+	<PolyGroup Name="OFDL_AdvGyro" DisplayName="Advanced Gyro Sensor - OFDL Dev." DisplayNamePrefix="OFDL_AdvGyro">
+      <Parameter Name="Port" DisplayName="Port" ></Parameter>
+      <Parameter Name="Bias" DisplayName="Heading Offset (AbsHdg In)"></Parameter>
+      <Parameter Name="RelHeading" DisplayName="Relative Heading"></Parameter>
+      <Parameter Name="AbsHeading" DisplayName="Absolute Heading"></Parameter>
+      <Parameter Name="Angle" DisplayName="Angle"></Parameter>
+      <Parameter Name="Rate" DisplayName="Rate"></Parameter>
+      <Parameter Name="Time" DisplayName="Delay before Check"></Parameter>
+      <Parameter Name="State" DisplayName="Calibrate Success?"></Parameter>
+	  
+	  <Category Name="CompassMode" DisplayName="Gyro As Compass">
+		<Block Mode="OFDL_AdvGyro_Heading" DisplayName="Measure Heading"/>
+		<Block Mode="OFDL_AdvGyro_HeadingRate" DisplayName="Measure Heading and Rate"/>
+	  </Category>
+	  <Category Name="TiltMode" DisplayName="Measure Tilt Value">
+		<Block Mode="OFDL_AdvGyro_TiltRate" DisplayName="Measure Tilt Rate"/>
+		<Block Mode="OFDL_AdvGyro_TiltAng" DisplayName="Measure Tilt Angle"/>
+	  </Category>
+	  <Category Name="CalibMode" DisplayName="Gyro Reset">
+		<Block Mode="OFDL_AdvGyro_SoftCalib" DisplayName="Reset (Software)"/>
+		<Block Mode="OFDL_AdvGyro_HardCalib" DisplayName="Reset (Hardware)"/>
+		<Block Mode="OFDL_AdvGyro_CheckCalib" DisplayName="Reset Result Check"/>
+	  </Category>
+    </PolyGroup>
+  </PolyGroups>
+</EditorStrings>

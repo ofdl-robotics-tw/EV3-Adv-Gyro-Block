@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<EditorDefinitions>
+	<PolyGroups ModuleName="OFDL AdvGyro" ModuleVersion="2.0 (By OFDL Dev.)">
+		<PolyGroup Name="OFDL_AdvGyro" BlockFamily="Sensor">
+			<Parameter Name="Port" CompilerDirectives="OneInputPort" Direction="Input" DefaultValue="2" />
+			<Parameter Name="Bias" Identification="builtin://Identification_Radius.png" DataType="Single" Direction="Input" DefaultValue="0" />
+			<Parameter Name="RelHeading" Identification="Identification_RelHdg.png" DataType="Single" Direction="Output" />
+			<Parameter Name="AbsHeading" Identification="Identification_AbsHdg.png" DataType="Single" Direction="Output" />
+			<Parameter Name="Angle" Identification="builtin://Identification_angle.png" Direction="Output" DataType="Single" />
+			<Parameter Name="Rate" Identification="builtin://Identification_Rate.png" DataType="Single" Direction="Output" />
+			<Parameter Name="Time" Identification="builtin://Identification_Time.png" DataType="Single" Direction="Input" DefaultValue="0.8" />
+			<Parameter Name="State" Identification="builtin://Identification_OutputBoolean.png" Direction="Output" DataType="Boolean"/>
+			<Hardware>
+				<EV3PlotColor>#ff5d5d5d</EV3PlotColor>
+				<EV3AutoID>32</EV3AutoID>
+				<Direction>Input</Direction>
+				<DefaultPort>2</DefaultPort>
+			</Hardware>
+			<Category Name="CompassMode">
+				<Block>
+					<Mode>OFDL_AdvGyro_Heading</Mode>
+					<Reference Type="VILib" Name="OFDL_AdvGyro_Heading.vix" />
+					<ParameterReference Name="Port" />
+					<ParameterReference Name="Bias" />
+					<ParameterReference Name="RelHeading" />
+					<ParameterReference Name="AbsHeading" />
+					<PaletteInfo Weight="0.5" />
+					<Flags>PBROnly</Flags>
+					<Hardware>RudolphGyro</Hardware>
+				</Block>
+				<Block>
+					<Mode>OFDL_AdvGyro_HeadingRate</Mode>
+					<Reference Type="VILib" Name="OFDL_AdvGyro_HeadingRate.vix" />
+					<ParameterReference Name="Port" />
+					<ParameterReference Name="Bias" />
+					<ParameterReference Name="RelHeading" />
+					<ParameterReference Name="AbsHeading" />
+					<ParameterReference Name="Rate" />
+					<Flags>PBROnly</Flags>
+					<Hardware>RudolphGyro</Hardware>
+				</Block>
+			</Category>
+			<Category Name="TiltMode">
+				<Block>
+					<Mode>OFDL_AdvGyro_TiltRate</Mode>
+					<Reference Type="VILib" Name="OFDL_AdvGyro_TiltRate.vix"/>
+					<ParameterReference Name="Port"/>
+					<ParameterReference Name="Rate"/>
+					<Flags>PBROnly</Flags>
+					<Hardware>RudolphGyro</Hardware>
+				</Block>
+				<Block>
+					<Mode>OFDL_AdvGyro_TiltAng</Mode>
+					<Reference Type="VILib" Name="OFDL_AdvGyro_TiltAng.vix"/>
+					<ParameterReference Name="Port"/>
+					<ParameterReference Name="Angle"/>
+					<Flags>PBROnly</Flags>
+					<Hardware>RudolphGyro</Hardware>
+				</Block>
+			</Category>
+			<Category Name="CalibMode">
+				<Block>
+					<Mode>OFDL_AdvGyro_SoftCalib</Mode>
+					<Reference Type="VILib" Name="OFDL_AdvGyro_SoftCalib.vix" />
+					<ParameterReference Name="Port" />
+					<Flags>PBROnly</Flags>
+					<Hardware>RudolphGyro</Hardware>
+				</Block>
+				<Block>
+					<Mode>OFDL_AdvGyro_HardCalib</Mode>
+					<Reference Type="VILib" Name="OFDL_AdvGyro_HardCalib.vix" />
+					<ParameterReference Name="Port" />
+					<Flags>PBROnly</Flags>
+					<Hardware>RudolphGyro</Hardware>
+				</Block>
+				<Block>
+					<Mode>OFDL_AdvGyro_CheckCalib</Mode>
+					<Reference Type="VILib" Name="OFDL_AdvGyro_CheckCalib.vix" />
+					<ParameterReference Name="Port" />
+					<ParameterReference Name="Time" />
+					<ParameterReference Name="State" />
+					<Flags>PBROnly</Flags>
+					<Hardware>RudolphGyro</Hardware>
+				</Block>
+			</Category>
+		</PolyGroup>
+	</PolyGroups>
+</EditorDefinitions>
