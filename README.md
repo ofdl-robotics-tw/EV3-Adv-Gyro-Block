@@ -28,7 +28,7 @@ Modes
 
 #### -- Measure Heading
 Emulate the HT Compass style, will return the Relative Heading and Absolute Heading (The North (or 0°) depends on when you reset the gyro).
-The offset allow you to dynamic adjust the gyro error and adjust the zero degrees. 
+The offset allow you to dynamic adjust the gyro error and adjust the zero degrees. (Offset value should in -360 ~ 360)
 
 #### -- Measure Heading and Rate
 Emulate the HT Compass style, will return the Relative Heading and Absolute Heading and Rate.
